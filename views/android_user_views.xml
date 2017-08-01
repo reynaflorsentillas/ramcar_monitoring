@@ -1,0 +1,100 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_android_user_form">
+            <field name="name">ramcar.monitoring.android.users.form</field>
+            <field name="model">ramcar.monitoring.android.users</field>
+            <field name="arch" type="xml">
+                <form string="Android Users">
+                    <sheet>
+                        <!--<field name="image" widget='image' class="oe_avatar pull-left"
+                               options='{"preview_image": "image_medium", }'/>-->
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                            <!--<h3> 
+                                <field name="company_id" placeholder="Company" /> 
+                            </h3> -->
+                        </div>
+                        <group>
+                            <!--<field name="positions" />-->
+                            <!--<field name="code" string="Internal ID"/>-->
+                            <group><field name="username" /></group>
+                            <group><field name="password" password="1" /></group>
+                            <!--<group><field name="can_view_overall_dashboard" /></group>-->
+                        </group>
+                        <!--<notebook>
+                            <page string="General Information">
+                                <group>
+                                    <field name="active"/>
+                                    <field name="mobile" placeholder="e.g. +506 5555 5555" required="1"/>
+                                    <field name="email" widget="email" />
+                                </group>
+                                <group>
+                                    <label for="street" string="Address"/>
+                                    <div>
+                                        <field name="street" placeholder="Street..."/>
+                                        <field name="street2" />
+                                        <div class="address_format">
+                                            <field name="city" placeholder="City" style="width: 40%%" />
+                                            <field name="state_id" class="no_button" placeholder="State" style="width: 37%%" options='{"no_open": True}' />
+                                            <field name="zip" placeholder="ZIP" style="width: 20%%" />
+                                        </div>
+                                        <field name="country_id" placeholder="Country" class="no_button" options='{"no_open": True}' />
+                                    </div>
+                                </group>
+                            </page>
+                            <page string="Extra Information">
+                                <group>
+                                    <field name="info" colspan="4"/>
+                                </group>
+                                
+                            </page>
+
+                            <page string="Sectors">
+                                
+                                <group>
+                                    <field name="user_sectors"/>
+                                </group>
+                                
+                            </page>
+                        </notebook>-->
+                     </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_android_user_tree">
+            <field name="name">ramcar.monitoring.android.users.tree</field>
+            <field name="model">ramcar.monitoring.android.users</field>
+            <field name="arch" type="xml">
+               <tree string="Android Users">
+                   <field name="name"/>
+                   <!--<field name="positions"/>-->
+                   <!--<field name="active"/>-->
+               </tree>
+            </field>
+        </record>
+
+        <!--<record model="ir.ui.view" id="android_user_search_view">
+            <field name="name">android.search</field>
+            <field name="model">philsteel.android</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                   <field name="positions"/>
+                   <field name="active"/>
+                </search>
+            </field>
+        </record>-->
+
+        <record model="ir.actions.act_window" id="android_user_action">
+            <field name="name">Android Users</field>
+            <field name="res_model">ramcar.monitoring.android.users</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>
