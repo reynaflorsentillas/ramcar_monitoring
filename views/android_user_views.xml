@@ -1,32 +1,32 @@
 <odoo>
     <data>
+
+        <!-- FORM -->
         <record model="ir.ui.view" id="view_android_user_form">
-            <field name="name">ramcar.monitoring.android.users.form</field>
-            <field name="model">ramcar.monitoring.android.users</field>
+            <field name="name">android.user.form</field>
+            <field name="model">android.user</field>
             <field name="arch" type="xml">
                 <form string="Android Users">
                     <sheet>
-                        <!--<field name="image" widget='image' class="oe_avatar pull-left"
-                               options='{"preview_image": "image_medium", }'/>-->
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-check">
+                                <field name="active" widget="boolean_button" options='{"terminology": "active"}'/>
+                            </button>
+                        </div>
+                        <field name="image" widget='image' class="oe_avatar" options='{"preview_image": "image_medium"}'/>
                         <div class="oe_title">
+                            <label for="name" />
                             <h1>
-                                <field name="name"/>
+                                <field name="name" required="1" />
                             </h1>
-                            <!--<h3> 
-                                <field name="company_id" placeholder="Company" /> 
-                            </h3> -->
                         </div>
                         <group>
-                            <!--<field name="positions" />-->
-                            <!--<field name="code" string="Internal ID"/>-->
-                            <group><field name="username" /></group>
-                            <group><field name="password" password="1" /></group>
-                            <!--<group><field name="can_view_overall_dashboard" /></group>-->
+                            <field name="username" />
+                            <field name="password" password="1" />
                         </group>
-                        <!--<notebook>
+                        <notebook>
                             <page string="General Information">
                                 <group>
-                                    <field name="active"/>
                                     <field name="mobile" placeholder="e.g. +506 5555 5555" required="1"/>
                                     <field name="email" widget="email" />
                                 </group>
@@ -50,50 +50,42 @@
                                 </group>
                                 
                             </page>
-
-                            <page string="Sectors">
-                                
-                                <group>
-                                    <field name="user_sectors"/>
-                                </group>
-                                
-                            </page>
-                        </notebook>-->
+                        </notebook>
                      </sheet>
                 </form>
             </field>
         </record>
-
-
+        
+        <!-- TREE -->
         <record model="ir.ui.view" id="view_android_user_tree">
-            <field name="name">ramcar.monitoring.android.users.tree</field>
-            <field name="model">ramcar.monitoring.android.users</field>
+            <field name="name">android.user.tree</field>
+            <field name="model">android.user</field>
             <field name="arch" type="xml">
                <tree string="Android Users">
                    <field name="name"/>
-                   <!--<field name="positions"/>-->
-                   <!--<field name="active"/>-->
                </tree>
             </field>
         </record>
 
-        <!--<record model="ir.ui.view" id="android_user_search_view">
-            <field name="name">android.search</field>
-            <field name="model">philsteel.android</field>
+        <!-- SEARCH -->
+        <record id="view_android_user_search" model="ir.ui.view">
+            <field name="name">android.user.search</field>
+            <field name="model">android.user</field>
             <field name="arch" type="xml">
-                <search>
-                    <field name="name"/>
-                   <field name="positions"/>
-                   <field name="active"/>
+                <search string="Android Users">
+                    <field name="name" filter_domain="['|', '|', ('name','ilike',self), ('username','ilike',self), ('email','ilike',self)]" string="User"/>
+                    <filter name="Inactive" string="Inactive Users" domain="[('active','=',False)]"/>
                 </search>
             </field>
-        </record>-->
+        </record>
 
+        <!-- ACTION -->
         <record model="ir.actions.act_window" id="android_user_action">
             <field name="name">Android Users</field>
-            <field name="res_model">ramcar.monitoring.android.users</field>
+            <field name="res_model">android.user</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_android_user_search"/>
         </record>
 
     </data>

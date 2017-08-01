@@ -1,0 +1,14 @@
+<odoo>
+    <data noupdate="0">
+        <record model="ir.module.category" id="module_category_ramcar_monitoring">
+            <field name="name">Ramcar Monitoring</field>
+            <field name="description"></field>
+            <field name="sequence">100</field>
+        </record>
+
+        <record id="group_ramcar_monitoring_android_user" model="res.groups">
+            <field name="name">Android User</field>
+            <field name="category_id" ref="module_category_ramcar_monitoring"/>
+        </record>
+    </data>
+</odoo>

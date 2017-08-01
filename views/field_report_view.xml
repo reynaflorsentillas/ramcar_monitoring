@@ -1,0 +1,82 @@
+<odoo>
+    <data>
+
+        <!-- FORM -->
+        <record model="ir.ui.view" id="view_field_report_form">
+            <field name="name">field.report.form</field>
+            <field name="model">field.report</field>
+            <field name="arch" type="xml">
+                <form string="Field Report Form">
+                    <header>
+                        <field name="status" widget="statusbar" options="{'fold_field': 'fold'}" />
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" />
+                            <h1>
+                                <field name="name" />
+                            </h1>
+                        </div>
+                        <group>
+                            <group string="General">
+                                <field name="partner_id" />
+                                <!--<field name="address_id" />-->
+                                <field name="default_address_id" />
+                            </group>
+                            <group string="Project Details">
+                                <field name="project_id" />
+                                <field name="project_site_address" />
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Contact Details">
+                                <group>
+                                    <field name="contact_person_id" />
+                                    <field name="jobsite_contact_number" />
+                                </group>
+                            </page>
+                            <page string="Signatory">
+                                <group>
+                                    <field name="accomplished_by" />
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <!-- TREE -->
+        <record model="ir.ui.view" id="view_field_report_tree">
+            <field name="name">field.report.tree</field>
+            <field name="model">field.report</field>
+            <field name="arch" type="xml">
+               <tree string="Field Report">
+                   <field name="name"/>
+               </tree>
+            </field>
+        </record>
+
+        <!-- SEARCH -->
+        <record id="view_field_report_search" model="ir.ui.view">
+            <field name="name">field.report.search</field>
+            <field name="model">field.report</field>
+            <field name="arch" type="xml">
+                <search string="Field Report">
+                    <field name="name" filter_domain="['|', '|', ('name','ilike',self)" string="Field Report Reference"/>
+                    <!--<filter name="Inactive" string="Inactive Users" domain="[('active','=',False)]"/>-->
+                </search>
+            </field>
+        </record>
+
+        <!-- ACTION -->
+        <record model="ir.actions.act_window" id="field_report_action">
+            <field name="name">Field Report</field>
+            <field name="res_model">field.report</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_field_report_search"/>
+        </record>
+
+    </data>
+</odoo>

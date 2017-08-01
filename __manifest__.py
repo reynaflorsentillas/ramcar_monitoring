@@ -3,8 +3,7 @@
     'name': "Ramcar Monitoring",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+        Monitoring of Field Engineers and Deliveries""",
 
     'description': """
         Backend for Ramcar's monitoring of field engineers and deliveries.
@@ -20,13 +19,16 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'hr'],
+    'depends': ['base', 'hr', 'project'],
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
+        'security/ramcar_monitoring_security.xml',
+        'data/ir_sequence_data.xml',
         'views/android_user_views.xml',
         'views/hr_employee_views.xml',
+        'views/field_report_view.xml',
         'views/menu_views.xml',
         # 'views/views.xml',
         # 'views/templates.xml',

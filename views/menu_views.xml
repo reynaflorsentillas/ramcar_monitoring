@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="menu_ramcar_monitoring_root" name="Ramcar Monitoring" sequence="10" web_icon="ramcar_monitoring,static/description/icon.png"/>
+
+        <menuitem id="menu_ramcar_monitoring_report" parent="menu_ramcar_monitoring_root" name="Reports" sequence="10" />
+        <menuitem id="menu_ramcar_monitoring_report_field" parent="menu_ramcar_monitoring_report" name="Field Report" sequence="10" action="field_report_action" />
+        <menuitem id="menu_ramcar_monitoring_report_delivery" parent="menu_ramcar_monitoring_report" name="Delivery" sequence="20" />
+
+        <menuitem id="menu_ramcar_monitoring_configuration" parent="menu_ramcar_monitoring_root" name="Configuration" sequence="20" />
+        <menuitem id="menu_ramcar_monitoring_android_user" parent="menu_ramcar_monitoring_configuration" name="Android Users" sequence="10" action="android_user_action" />
+
+    </data>
+</odoo>
