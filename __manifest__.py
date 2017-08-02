@@ -29,6 +29,7 @@
         'views/android_user_views.xml',
         'views/hr_employee_views.xml',
         'views/field_report_view.xml',
+        'views/delivery_report_view.xml',
         'views/menu_views.xml',
         # 'views/views.xml',
         # 'views/templates.xml',
